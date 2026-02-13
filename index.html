@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JDN Car | Troca de Óleo e Filtros em Parnamirim/RN</title>
+    
+    <!-- Link para o CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/2933/2933802.png">
+
+    <!-- Meta Tags SEO & Compartilhamento Social -->
+    <meta name="description" content="JDN Car - Troca de óleo e filtros em Parnamirim com Neto 'O Garotinho'. Qualidade, rapidez e os melhores lubrificantes do mercado potiguar.">
+    <meta name="keywords" content="Oficina Mecânica Parnamirim, Troca de Óleo, JDN Car, Neto o Garotinho, Filtro de Óleo, Shell Helix, Castrol, Petronas, Revisão Automotiva RN">
+    <meta name="author" content="JDN Car">
+    <meta property="og:title" content="Troca de Óleo em Parnamirim | JDN Car">
+    <meta property="og:description" content="Garanta a saúde do seu motor com o Neto 'O Garotinho'. Preços justos e atendimento especializado.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1552353617-3bfd679b3bdd?q=80&w=1000&auto=format&fit=crop">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Dados Estruturados (AutoRepair / Local Business) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "JDN Car - Neto O Garotinho",
+      "image": "https://images.unsplash.com/photo-1552353617-3bfd679b3bdd",
+      "telephone": "+5584999999999",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Principal",
+        "addressLocality": "Parnamirim",
+        "addressRegion": "RN",
+        "postalCode": "59140-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-5.9167",
+        "longitude": "-35.2631"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style></style>
+</head>
+<body>
+
+    <!-- Modal VIP (Agendamento / Captura) -->
+    <div id="modal-whitelist" class="modal-overlay" onclick="if(event.target == this) closeW()">
+        <div class="modal-box">
+            <button class="absolute top-4 right-6 text-2xl" onclick="closeW()">×</button>
+            <div class="text-6xl mb-4">🛢️</div>
+            <h2 class="font-black uppercase text-xl mb-2">Clube do Neto</h2>
+            <p class="text-sm text-gray-500 mb-6">Receba lembretes da sua próxima troca e descontos exclusivos do Garotinho!</p>
+            
+            <form id="form-whitelist-view" class="space-y-4">
+                <input type="text" placeholder="Seu nome" required class="w-full p-3 border rounded-lg">
+                <input type="email" id="email-input" placeholder="Seu e-mail" required class="w-full p-3 border rounded-lg">
+                <button type="submit" id="btn-submit-news" class="w-full btn-primary p-4 shadow-lg uppercase text-sm">Quero Descontos</button>
+            </form>
+            
+            <div id="success-msg" class="hidden mt-6 text-green-600 font-bold uppercase text-xs">Agregado com sucesso! 🛠️</div>
+        </div>
+    </div>
+
+    <!-- Hero Slider -->
+    <section class="hero-container shadow-lg">
+        <div class="hero-track" id="hero-slider">
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1486006396193-471fa7f5d67e?q=80&w=1500" alt="Oficina JDN Car">
+                <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center p-4">
+                    <h2 class="text-4xl font-black italic mb-2">JDN CAR</h2>
+                    <p class="bg-red-600 px-4 py-1 text-sm font-bold">Com Neto "O Garotinho"</p>
+                </div>
+            </div>
+            <div class="hero-slide bg-zinc-900 flex flex-col justify-center items-center text-white p-12 text-center">
+                <h2 class="text-yellow-500 font-black text-2xl uppercase">Troca Rápida</h2>
+                <p class="text-sm opacity-80 mt-2">Óleo e filtros trocados em 20 minutos. Sem frescura, com a confiança de quem entende!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sidebar Loja -->
+    <aside id="sidebar-info" class="sidebar left">
+        <button class="absolute top-4 right-6 text-2xl" onclick="toggleSidebar('sidebar-info')">×</button>
+        <div class="mt-8">
+            <div class="text-center mb-6">
+                <h3 class="text-red-600 font-black text-xl">JDN CAR</h3>
+                <p class="text-xs font-bold text-gray-500">PARNAMIRIM - RN</p>
+                <div class="text-yellow-500 text-lg">★★★★★</div>
+                <span class="text-[10px] uppercase font-bold text-gray-400">Oficina Recomendada</span>
+            </div>
+            
+            <div class="bg-gray-100 p-4 rounded-xl mb-6">
+                <p class="text-[10px] font-black uppercase text-gray-400 mb-2">📍 Localização</p>
+                <p class="text-xs font-bold">Atendemos em Parnamirim e região metropolitana de Natal.</p>
+            </div>
+
+            <div class="space-y-3">
+                <a href="https://wa.me/5584999999999" target="_blank" class="block w-full text-center p-3 bg-green-500 text-white rounded-lg font-bold">WhatsApp do Neto</a>
+                <button onclick="openReviewsModal()" class="w-full text-center p-3 border border-gray-300 rounded-lg font-bold text-sm">Ver no Google Maps</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Sidebar Carrinho -->
+    <aside id="sidebar-cart" class="sidebar right">
+        <button class="absolute top-4 left-6 text-2xl" onclick="toggleSidebar('sidebar-cart')">×</button>
+        <div class="mt-8">
+            <h3 class="font-black uppercase text-lg mb-2">Meu Orçamento</h3>
+            <div id="cart-list" class="space-y-4 mb-6"></div>
+            <div id="cart-summary" class="border-t pt-4"></div>
+        </div>
+    </aside>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+        <button class="font-bold text-xs uppercase" onclick="toggleSidebar('sidebar-info')">📍 Oficina</button>
+        <button class="font-bold text-xs uppercase" onclick="toggleSidebar('sidebar-cart')">🛒 Orçamento (<span id="cart-counter">0</span>)</button>
+    </nav>
+
+    <!-- Título Vitrine -->
+    <header class="text-center my-10">
+        <h1 class="font-light tracking-[8px] text-2xl uppercase">LUBRIFICANTES</h1>
+        <p class="text-red-600 font-black text-[10px] tracking-[3px] uppercase mt-2">Os Melhores Preços de Parnamirim</p>
+    </header>
+
+    <!-- Vitrine -->
+    <div id="vitrine" class="vitrine-grid mb-24"></div>
+
+    <!-- Modal Google Maps -->
+    <div id="modal-reviews" class="modal-overlay" onclick="if(event.target == this) closeReviews()">
+        <div class="modal-box w-full max-w-lg">
+            <button class="absolute top-4 right-6 text-2xl" onclick="closeReviews()">×</button>
+            <h2 class="text-red-600 font-black mb-4 uppercase">Como Chegar</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63493.42436423986!2d-35.295627!3d-5.914238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b2f6717a0774a3%3A0x673160a0058e38d3!2sParnamirim%2C%20RN!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="250" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <script>
+        const whatsappNumber = "5584999999999"; // Substituir pelo real
+
+        // Preços Médios Potiguares (RN) atualizados
+        const produtos = [
+            { id: 1, categoria: "Óleo", nome: "Shell Helix HX8 5W-30 (Sintético)", precoDe: 65.00, precoPor: 58.00, img: "https://m.media-amazon.com/images/I/61MvJ6o2+OL._AC_SL1000_.jpg" },
+            { id: 2, categoria: "Óleo", nome: "Castrol Magnatec 5W-40", precoDe: 72.00, precoPor: 64.00, img: "https://images.tcdn.com.br/img/img_prod/704810/oleo_lubrificante_castrol_magnatec_5w40_sintetico_api_sn_acei_a3_b4_1l_667_1_20200504143242.jpg" },
+            { id: 3, categoria: "Óleo", nome: "Petronas Selenia 15W-40", precoDe: 48.00, precoPor: 39.90, img: "https://m.media-amazon.com/images/I/51wX8G2H-YL._AC_SL1000_.jpg" },
+            { id: 4, categoria: "Óleo", nome: "Mobil Super 10W-40 (Semi)", precoDe: 55.00, precoPor: 48.00, img: "https://images.tcdn.com.br/img/img_prod/673117/oleo_de_motor_mobil_super_10w40_semisintetico_flex_1l_1033_1_20191206100234.jpg" },
+            { id: 5, categoria: "Filtro", nome: "Filtro de Óleo Tecfil (Linha Leve)", precoDe: 35.00, precoPor: 28.00, img: "https://m.media-amazon.com/images/I/51p8+S3tYPL._AC_SL1000_.jpg" },
+            { id: 6, categoria: "Filtro", nome: "Filtro de Ar Fram", precoDe: 52.00, precoPor: 42.00, img: "https://m.media-amazon.com/images/I/71R2oI1-p3L._AC_SL1500_.jpg" },
+            { id: 7, categoria: "Filtro", nome: "Filtro de Combustível Mann", precoDe: 30.00, precoPor: 24.00, img: "https://m.media-amazon.com/images/I/61N+V35i5NL._AC_SL1500_.jpg" },
+            { id: 8, categoria: "Combo", nome: "Kit Revisão: 4L Shell + Filtro", precoDe: 295.00, precoPor: 255.00, img: "https://images.tcdn.com.br/img/img_prod/606132/kit_troca_de_oleo_5w30_sintetico_shell_filtros_tecfil_6615_1_20201026115933.jpg" }
+        ];
+
+        let carrinho = JSON.parse(localStorage.getItem('cart_jdncar_v1')) || {};
+
+        window.onload = () => {
+            renderizarVitrine();
+            updateCartUI();
+            initHero();
+            if(!localStorage.getItem('jdn_subscribed')) setTimeout(() => openW(), 4000);
+        };
+
+        function openW() { document.getElementById('modal-whitelist').style.display = 'flex'; }
+        function closeW() { document.getElementById('modal-whitelist').style.display = 'none'; }
+
+        function renderizarVitrine() {
+            const grid = document.getElementById('vitrine');
+            grid.innerHTML = produtos.map(p => `
+                <div class="card-produto">
+                    <div class="img-box">
+                        <span class="discount-badge">PROMO</span>
+                        <img src="${p.img}" alt="${p.nome}" loading="lazy">
+                    </div>
+                    <div class="p-5 text-center">
+                        <p class="text-[9px] font-bold text-red-600 uppercase tracking-widest mb-1">${p.categoria}</p>
+                        <h4 class="text-sm font-black uppercase mb-3 h-10 overflow-hidden">${p.nome}</h4>
+                        <div class="mb-4">
+                            <span class="text-xs text-gray-400 line-through">R$ ${p.precoDe.toFixed(2).replace('.',',')}</span><br>
+                            <span class="font-black text-xl text-zinc-800">R$ ${p.precoPor.toFixed(2).replace('.',',')}</span>
+                        </div>
+                        <button onclick="addToCart(${p.id})" class="w-full btn-primary p-3 shadow-md active:scale-95 uppercase text-xs">Adicionar ao Orçamento</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addToCart(id) {
+            carrinho[id] = (carrinho[id] || 0) + 1;
+            updateCartUI();
+            if(!document.getElementById('sidebar-cart').classList.contains('active')) toggleSidebar('sidebar-cart');
+        }
+
+        function removeOne(id) {
+            if(carrinho[id] > 0) {
+                carrinho[id]--;
+                if(carrinho[id] === 0) delete carrinho[id];
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            localStorage.setItem('cart_jdncar_v1', JSON.stringify(carrinho));
+            const list = document.getElementById('cart-list');
+            const summary = document.getElementById('cart-summary');
+            let total = 0, count = 0;
+
+            const cartItems = produtos.filter(p => carrinho[p.id] > 0);
+            
+            list.innerHTML = cartItems.map(p => {
+                const q = carrinho[p.id];
+                total += p.precoPor * q;
+                count += q;
+                return `
+                    <div class="flex items-center justify-between border-b pb-3">
+                        <div class="flex-1">
+                            <p class="text-[10px] font-black uppercase leading-tight">${p.nome}</p>
+                            <p class="text-xs text-red-600 font-bold">R$ ${(p.precoPor * q).toFixed(2).replace('.',',')}</p>
+                        </div>
+                        <div class="flex items-center gap-3 bg-gray-100 rounded-lg px-2 py-1">
+                            <button onclick="removeOne(${p.id})" class="font-bold">-</button>
+                            <span class="text-xs font-black">${q}</span>
+                            <button onclick="addToCart(${p.id})" class="font-bold">+</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('cart-counter').innerText = count;
+            
+            summary.innerHTML = count > 0 ? `
+                <div class="flex justify-between font-black text-lg mb-4 italic uppercase">
+                    <span>Subtotal:</span>
+                    <span class="text-red-600">R$ ${total.toFixed(2).replace('.',',')}</span>
+                </div>
+                <button onclick="checkout(${total})" class="w-full bg-green-500 text-white p-4 rounded-xl font-black uppercase text-sm shadow-lg">Agendar com Garotinho</button>
+                <p class="text-[8px] text-center mt-3 text-gray-400 uppercase">* Preço sujeito a alteração conforme volume de óleo do cárter.</p>
+            ` : `<p class="text-center text-gray-400 text-xs py-10 font-bold uppercase">Seu orçamento está vazio</p>`;
+        }
+
+        function checkout(t) {
+            let m = "🛠️ *ORÇAMENTO JDN CAR - NETO O GAROTINHO* 🛠️\n\n";
+            produtos.forEach(p => {
+                if(carrinho[p.id]) m += `✅ *${carrinho[p.id]}x* ${p.nome}\n`;
+            });
+            m += `\n💰 *VALOR ESTIMADO: R$ ${t.toFixed(2).replace('.',',')}*`;
+            m += `\n\n_Olá Neto, gostaria de agendar uma troca de óleo para meu carro!_`;
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(m)}`);
+        }
+
+        function toggleSidebar(id) {
+            const side = document.getElementById(id);
+            side.classList.toggle('active');
+        }
+
+        function initHero() {
+            const s = document.getElementById('hero-slider');
+            let cur = 0;
+            setInterval(() => {
+                cur = (cur + 1) % s.children.length;
+                s.style.transform = `translateX(-${cur * 100}%)`;
+            }, 5000);
+        }
+
+        function openReviewsModal() { document.getElementById('modal-reviews').style.display = 'flex'; }
+        function closeReviews() { document.getElementById('modal-reviews').style.display = 'none'; }
+
+        document.getElementById('form-whitelist-view').addEventListener('submit', (e) => {
+            e.preventDefault();
+            localStorage.setItem('jdn_subscribed', 'true');
+            document.getElementById('success-msg').classList.remove('hidden');
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#c41212', '#000000'] });
+            setTimeout(closeW, 2500);
+        });
+    </script>
+</body>
+</html>

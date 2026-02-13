@@ -1,0 +1,202 @@
+
+:root {
+            --primary: #c41212; /* Vermelho Oficina */
+            --secondary: #222;
+            --gold: #fbc02d;
+            --whatsapp: #25d366;
+            --bg-light: #f4f4f4;
+        }
+
+        body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: #333; }
+        
+        .hero-container { position: relative; overflow: hidden; height: 350px; background: #000; }
+        .hero-track { display: flex; transition: transform 0.5s ease-in-out; height: 100%; }
+        .hero-slide { min-width: 100%; height: 100%; position: relative; }
+        .hero-slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+        
+        .vitrine-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px; 
+            padding: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+
+        .card-produto { 
+            background: #fff; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .card-produto:hover { transform: translateY(-5px); }
+
+        .img-box { height: 220px; background: #fff; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .img-box img { max-height: 180px; object-fit: contain; }
+
+        .sidebar { 
+            position: fixed; top: 0; width: 300px; height: 100%; background: #fff; 
+            z-index: 1000; transition: 0.4s; box-shadow: 0 0 50px rgba(0,0,0,0.2); padding: 30px;
+        }
+        .sidebar.left { left: -300px; }
+        .sidebar.right { right: -300px; }
+        .sidebar.active { transform: translateX(300px); }
+        .sidebar.right.active { transform: translateX(-300px); }
+
+        .bottom-nav { 
+            position: fixed; bottom: 0; width: 100%; background: #fff; 
+            display: flex; justify-content: space-around; padding: 15px; 
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 900;
+        }
+        
+        .btn-primary { background: var(--primary); color: #fff; font-weight: 700; border-radius: 8px; transition: 0.3s; }
+        .btn-primary:hover { background: #a00e0e; }
+
+        .discount-badge { 
+            position: absolute; top: 10px; right: 10px; background: var(--primary); 
+            color: #fff; padding: 5px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 800; 
+        }
+
+        .pulse-main { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        .modal-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.8); display: none; align-items: center; 
+            justify-content: center; z-index: 2000; 
+        }
+        .modal-box { background: #fff; padding: 40px; border-radius: 20px; text-align: center; max-width: 400px; position: relative; }
+        
+        #toast { position: fixed; top: 20px; right: 20px; z-index: 3000; }
+
+    
+
+                :root {
+            --gold: #d4af37;
+            --dark: #1a1a1a;
+            --red-luxury: #8b0000;
+            --white: #ffffff;
+            --bg-light: #f8f8f8;
+            --whatsapp: #25d366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--dark);
+            font-family: 'Inter', -apple-system, sans-serif;
+            padding-bottom: 120px;
+            overflow-x: hidden;
+        }
+ /**/
+        /* Marca d'água de fundo
+        body::before {
+            content: ""; position: fixed; top: 50%; left: 50%; width: 200%; height: 200%; z-index: -1;
+            background-image: url('desejoslogo.png'); background-repeat: repeat; background-size: 250px;
+            opacity: 0.06; filter: grayscale(100%); transform: translate(-50%, -50%) rotate(-30deg);
+            pointer-events: none;
+        }
+*/
+        /* Hero Slider 
+        .hero-container { width: 100%; position: relative; overflow: hidden; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .hero-track { display: flex; transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1); }
+        .hero-slide { flex: 0 0 100%; width: 100%; }
+        .hero-slide img { width: 100%; height: 100%; object-fit: cover; }
+
+        @media (min-width: 768px) { .hero-container { height: 500px; } .hero-slide img { aspect-ratio: 21 / 9; object-position: center 25%; } }
+        @media (max-width: 767px) { .hero-container { height: 500px; } .hero-slide img { aspect-ratio: 4 / 5; object-position: center top; } }
+ */
+        /* Sidebars
+        .sidebar {
+            position: fixed; top: 0; width: 340px; height: 100%; background: var(--white);
+            z-index: 2500; transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            box-shadow: 0 0 50px rgba(0,0,0,0.15); display: flex; flex-direction: column; padding: 25px;
+        }
+        .sidebar.left { left: -340px; border-right: 4px solid var(--gold); }
+        .sidebar.right { right: -340px; border-left: 4px solid var(--gold); }
+        .sidebar.active { transform: translateX(340px); }
+        .sidebar.right.active { transform: translateX(-340px); }
+
+        .sidebar-content { flex-grow: 1; overflow-y: auto; padding-right: 5px; }
+        .close-btn { background: none; border: none; font-size: 2.2rem; cursor: pointer; align-self: flex-end; color: #ddd; transition: 0.3s; }
+        .close-btn:hover { color: var(--dark); }
+*/
+        /* Aba da Loja 
+        .google-trust-badge { background: #fdfdfd; padding: 15px; border-radius: 20px; cursor: pointer; margin-top: 15px; border: 1px solid #eee; transition: 0.3s; text-align: center; }
+        .google-trust-badge:hover { border-color: var(--gold); background: #fffcf5; }
+        .privacy-seal { background: #fff; padding: 20px; border-radius: 20px; margin: 20px 0; text-align: center; border: 1px solid var(--gold); }
+        .delivery-item { display: flex; justify-content: space-between; padding: 12px; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem; color: #555; }
+        .social-link { padding: 15px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; margin-bottom: 10px; text-align: center; display: block; font-size: 0.8rem; text-transform: uppercase; }
+        .insta { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+        .face { background: #1877f2; }
+ */
+        /* Vitrine e Cards
+        .vitrine-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; width: 100%; max-width: 1200px; padding: 20px; place-self: anchor-center;}
+        .card-produto { background: var(--white); border-radius: 25px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: 0.3s; position: relative; text-align: center; }
+        .card-produto:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+
+        .img-box { height: 280px; overflow: hidden; position: relative; cursor: pointer; background: #f4f4f4; }
+        .img-track { display: flex; transition: transform 0.5s ease-in-out; height: 100%; }
+        .img-track img { object-fit: cover; width: 100%; height: 100%; flex-shrink: 0; }
+
+        .discount-badge { position: absolute; top: 15px; left: 15px; background: var(--dark); color: white; padding: 4px 10px; font-size: 0.7rem; font-weight: 900; border-radius: 6px; z-index: 10; }
+ */
+        /* Álbum de Figurinhas
+        .cart-item-album { display: flex; justify-content: space-between; align-items: center; padding: 12px; margin-bottom: 10px; border-radius: 15px; border: 1px solid #f0f0f0; transition: 0.4s; }
+        .cart-item-album.disabled { opacity: 0.2; filter: grayscale(1); background: #fafafa; border-style: dashed; }
+        .cart-item-album.active { opacity: 1; border-color: var(--gold); background: #fffdf5; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1); }
+        .cart-controls { display: flex; align-items: center; gap: 10px; background: #f0f0f0; padding: 4px 10px; border-radius: 20px; }
+        .cart-controls button { background: none; border: none; font-weight: bold; cursor: pointer; font-size: 1.1rem; width: 22px; }
+*/
+        /* Botão Pulsante Central 
+        .main-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 32px;
+            background: var(--dark);
+            color: var(--gold);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            border: 2px solid var(--gold);
+            margin: 20px 0 40px 0;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .pulse-main {
+            animation: pulse-main-btn 2.5s infinite;
+        }
+
+        @keyframes pulse-main-btn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+            100% { transform: scale(1); }
+        }
+ */
+        /* Modais
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; z-index: 5000; justify-content: center; align-items: center; backdrop-filter: blur(8px); padding: 20px; }
+        .modal-box { background: white; width: 100%; max-width: 420px; padding: 40px; border-radius: 35px; text-align: center; position: relative; }
+        .newsletter-input { width: 100%; padding: 16px; border-radius: 15px; border: 1px solid #eee; background: #f9f9f9; margin-bottom: 15px; outline: none; transition: 0.3s; }
+        .newsletter-input:focus { border-color: var(--gold); background: white; }
+        .btn-gold { width: 100%; padding: 16px; background: var(--gold); color: var(--dark); border: none; border-radius: 15px; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+ */
+        /* UI Components
+        .bottom-nav { position: fixed; bottom: 25px; width: 92%; max-width: 480px; left: 50%; transform: translateX(-50%); background: rgba(20,20,20,0.98); backdrop-filter: blur(15px); border-radius: 100px; display: flex; justify-content: space-around; padding: 18px; z-index: 2000; border: 1px solid rgba(212, 175, 55, 0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .bottom-nav button { background: none; border: none; color: white; font-weight: 900; font-size: 0.75rem; cursor: pointer; letter-spacing: 1px; text-transform: uppercase; }
+        .btn-float { position: fixed; bottom: 100px; right: 25px; width: 55px; height: 55px; background: var(--gold); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 8px 25px rgba(0,0,0,0.2); cursor: pointer; z-index: 1000; border: none; font-size: 1.3rem; }
+        
+        #toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: var(--dark); color: white; padding: 15px 30px; border-radius: 50px; z-index: 9999; display: none; font-weight: bold; border: 1px solid var(--gold); }
+
+        @media (max-width: 600px) {
+            .vitrine-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 15px; }
+            .img-box { height: 210px; }
+            .sidebar { width: 300px; }
+        } */
